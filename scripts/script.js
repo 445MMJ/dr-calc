@@ -180,7 +180,6 @@ function debug() {
   document.getElementById("span207").textContent = self_skill_sum;
   document.getElementById("span208").textContent = servant_oc_arry;
   document.getElementById("span209").textContent = calc;
-  document.getElementById("span210").textContent = null;
 }
 
 function debugbtn() {
