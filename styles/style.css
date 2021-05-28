@@ -16,10 +16,13 @@ html {
   touch-action: manipulation; /*ダブルタップ暴発防止*/
 }
 
-body {
-  text-align: center;
-  background-color: #4DD0E1;
+
+header{
+  position: absolute;
+  top: 0.3rem;
 }
+  
+
 
 .result {
   display: inline-block;
@@ -48,6 +51,11 @@ body {
   position: relative;
   top: 0.2rem;
   box-shadow: none;
+}
+
+body {
+  text-align: center;
+  background-color: #4DD0E1;
 }
 
 /*全体/単体、OC段階ラジオボタン類をまとめて装飾*/
