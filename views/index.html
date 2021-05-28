@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>即死率計算機</title>
+  <script src="data.js">  </script>
+  <link rel="stylesheet" href="style.css">
+  
+  
+</head>
+
+<body >  
+    <header>
+      <div　class="result" >
+        即死確率<span id="span200"></span>％      
+      </div>
+      <label class="calc"> 
+      <input type="button"  value="計算" onclick="calculate()" /> 
+        </label>
+    </header>
+
+    <p>
+
+    <div>
+      
+        <input id = "radio01" type="radio" name="range" value="全体" onclick="check_range(value)" checked="checked">
+        <label for="radio01">全体</label>        
+        <input id = "radio02" type="radio" name="range" value="単体" onclick="check_range(value)">
+        <label for="radio02">単体</label>
+      
+      
+    </div>
+
+    <div>
+      <select id="select_servant" onchange="check_servant(this.value)"></select>
+    </div>
+
+    <div>
+      
+        <input id = "radio03" type="radio" name="overcharge" value="1" onchange="check_OC(value)" checked/>
+        <label for="radio03">OC1</label>     
+        <input id = "radio04" type="radio" name="overcharge" value="2" onchange="check_OC(value)" />
+        <label for="radio04">OC2</label>       
+        <input id = "radio05" type="radio" name="overcharge" value="3" onchange="check_OC(value)" />
+        <label for="radio05">OC3</label>     
+        <input id = "radio06" type="radio" name="overcharge" value="4" onchange="check_OC(value)" />
+        <label for="radio06">OC4</label>
+        <input id = "radio07" type="radio" name="overcharge" value="5" onchange="check_OC(value)" />
+        <label for="radio07">OC5</label>
+           
+    </div>
+
+    <div>
+      エネミーDR 
+      <select id="enemyDR" onchange="check_eDR(this.value)">
+        <option value = "100" selected>100</option>
+        <option value = "80" >80</option>
+        <option value = "50" >50</option>
+        <option value = "20" >20</option>
+      </select>
+    </div>
+
+    <div>
+      敵全体効果スキル<br>  
+      <form id = "skill0" name="all_resist_skill_form" class ="box">
+       
+      </form>
+       
+    </div>
+
+    <div >
+      敵単体効果スキル<br> 
+      <form id = "skill1" name="single_resist_skill_form" class ="box">
+        
+      </form>
+
+    </div>
+
+    <div >
+      セルフ効果スキル<br> 
+      <form id = "skill2" name = "self_skill_form" class ="box">
+        
+      </form>      
+    </div>
+
+  </p>
+   
+    <footer>
+      即死率計算機
+      <label class ="debugbtn" >
+      <input type="button" value="動作確認" onclick="debugbtn()" /> 
+        </label>
+      <div id = "debug" class="debug" >   
+        <p>
+        絆礼装の扱い無し 変数出力一覧  
+        &nbsp;OC:<span id="span201"></span>
+        &nbsp;servant:<span id="span202"></span> 
+        &nbsp;servant_skill:<span id="span203"></span>
+        &nbsp;eDR:<span id="span204"></span>
+        &nbsp;all_resist_skill_sum:<span id="span205"></span>
+        &nbsp;single_resist_skill_sum:<span id="span206"></span>
+        &nbsp;self_skill:<span id="span207"></span>
+        &nbsp;servant_oc_arry:<span id="span208"></span>
+        &nbsp;calc:<span id="span209"></span>
+        </p>
+      </div> 
+    </footer>
+    
+          
+  <script src="client.js">
+  </script>
+  <script>
+     firstONLY()
+  </script>
+</body>
+
+
+</html>
