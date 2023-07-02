@@ -1,129 +1,43 @@
 <!DOCTYPE html>
-
-
-<html>
+<html >
 
 <head>
-  <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Cache-Control" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-  <meta name="viewport" content="width=device-width,height=device-height">
-  <title>即死率計算機</title>
-  <script src="scripts/data.js">  </script>
-  <link rel="stylesheet" href="styles/style.css">
-  <link rel="shortcut icon" href="favicon.ico">
-  
-  
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>即死確率計算機</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <link rel="shortcut icon" href="data:image/x-icon;base64,AAABAAEAICAQAAEABADoAgAAFgAAACgAAAAgAAAAQAAAAAEABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIiAAAAAAAAAAAAAAAAACIiIgIiIiIiIiIiIiIiIiAiIiICIgAiIAIiACIiESIgIiIiAiAiAgIgICICISISICIiIgIgIgICICAiAiEiEiAiIiICIgAiIAIiACIhIhIgIiIiAiIiIiIiIiIiISISICIiIgIiACIgAiIAIiEiEiAiIiICICICAiAgIgIhIhIgIiIiAiAiAgIgICICISISICIiIgIiACIgAiIAIiIRIiAiIiICIiIiIiIiIiIiIiIgIiIiAiIAIiACIgAiIgAiICIiIgIgIgICICAiAiAiAiAiIiICICICAiAgIgIgIgIgIiIiAiIAIiACIgAiIgAiICIiIgIiIiIiIiIiIiIiIiAiIiICIiIiIiIiIiIiIiIgIiIiAiIAIiACIgAiIgAiICIiIgIgIgICICAiAiAiAiAiIiICICICAiAgIgIgIgIgIiIiAiIAIiACIgAiIgAiICIiIgIiIiIiIiIiIiIiIiAiIiICIiIiIiIiIiIiIiIgIiIiAhERERERERERERERICIiIgISIiIiIiIiIiIiISAiIiICEiIiIiIiIiIiIiEgIiIiAhIiIiIiIiIiIiIhICIiIgISIiIiIiIiIiIiISAiIiICEREREREREREREREgIiIiAiIiIiIiIiIiIiIiICIiIgAAAAAAAAAAAAAAAAAiLgAAAH7///9+5znnftrW237a1tt+5znbfv//237nOdt+2tbbftrW237nOed+////fuc5537a1tt+2tbbfuc5537///9+////fuc5537a1tt+2tbbfuc5537///9+////foAAAX6///1+v//9fr///X6///1+gAABfv///34AAABw==">
+
+  <!-- Bootstrap用CSSの読み込み -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+  <!-- Google Material Icons用CSSの読み込み -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+  <script type="module" crossorigin src="/dr-calc/assets/index-16ec8687.js"></script>
 </head>
 
-<body >  
-    <header>
-      <div　class="result" >
-        即死確率<span id="span200"></span>％      
-      </div>
-      <label class="calc"> 
-      <input type="button"  value="計算" onclick="calculate()" /> 
-        </label>
-    </header>
 
-    <p>
+<body>
+  <div id="app"></div>
+  
+  <!-- Bootstrap用jacascriptの読み込み -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+    integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+    crossorigin="anonymous"></script>
 
-    <div>
-      
-        <input id = "radio01" type="radio" name="range" value="全体" onclick="check_range(value)" checked="checked">
-        <label for="radio01">全体</label>        
-        <input id = "radio02" type="radio" name="range" value="単体" onclick="check_range(value)">
-        <label for="radio02">単体</label>
-      
-      
-    </div>
-
-    <div>
-      <select id="select_servant" onchange="check_servant(this.value)"></select>
-    </div>
-
-    <div>
-      
-        <input id = "radio03" type="radio" name="overcharge" value="1" onchange="check_OC(value)" checked/>
-        <label for="radio03">OC1</label>     
-        <input id = "radio04" type="radio" name="overcharge" value="2" onchange="check_OC(value)" />
-        <label for="radio04">OC2</label>       
-        <input id = "radio05" type="radio" name="overcharge" value="3" onchange="check_OC(value)" />
-        <label for="radio05">OC3</label>     
-        <input id = "radio06" type="radio" name="overcharge" value="4" onchange="check_OC(value)" />
-        <label for="radio06">OC4</label>
-        <input id = "radio07" type="radio" name="overcharge" value="5" onchange="check_OC(value)" />
-        <label for="radio07">OC5</label>
-           
-    </div>
-
-    <div>
-      エネミーDR 
-      <select id="enemyDR" onchange="check_eDR(this.value)">
-        <option value = "100" selected>100</option>
-        <option value = "80" >80</option>
-        <option value = "50" >50</option>
-        <option value = "20" >20</option>
-      </select>
-    </div>
-
-    <div>
-      敵全体効果スキル<br>  
-      <form id = "skill0" name="all_resist_skill_form" class ="box">
-       
-      </form>
-       
-    </div>
-
-    <div >
-      敵単体効果スキル<br> 
-      <form id = "skill1" name="single_resist_skill_form" class ="box">
-        
-      </form>
-
-    </div>
-
-    <div >
-      セルフ効果スキル<br> 
-      <form id = "skill2" name = "self_skill_form" class ="box">
-        
-      </form>      
-    </div>
-
-  </p>
-   
-    <footer>
-      即死率計算機
-      <label class ="debugbtn" >
-      <input type="button" value="動作確認" onclick="debugbtn()" /> 
-        </label>
-      <div id = "debug" class="debug" >   
-        <p>
-        絆礼装の扱い無し 変数出力一覧  
-        &nbsp;OC:<span id="span201"></span>
-        &nbsp;servant:<span id="span202"></span> 
-        &nbsp;servant_skill:<span id="span203"></span>
-        &nbsp;eDR:<span id="span204"></span>
-        &nbsp;all_resist_skill_sum:<span id="span205"></span>
-        &nbsp;single_resist_skill_sum:<span id="span206"></span>
-        &nbsp;self_skill:<span id="span207"></span>
-        &nbsp;servant_oc_arry:<span id="span208"></span>
-        &nbsp;calc:<span id="span209"></span>
-        <br>
-        <a href= "https://github.com/445MMJ/dr-calc" >中身</a> 
-        </p>
-      </div> 
-    </footer>
-    
-          
-  <script src="scripts/script.js">
-  </script>
-  <script>
-     firstONLY()
-  </script>
 </body>
+
+
 
 
 </html>
